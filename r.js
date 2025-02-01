@@ -13,8 +13,8 @@ document.addEventListener("DOMContentLoaded", async function () {
 
         const today = new Date();
         const todayDate = today.toLocaleDateString("en-GB", { 
-            day: "2-digit", month: "short", year: "numeric" 
-        }).replace(" ", "-");
+        day: "2-digit", month: "short", year: "numeric" 
+        });
 
         let found = false;
         rows.slice(1).forEach(row => {
