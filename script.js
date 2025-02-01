@@ -1,6 +1,6 @@
-console.log("✅ ramadan.js is running!");
-
+console.log("✅ script.js is running!");
 document.addEventListener("DOMContentLoaded", function () {
+    // Function to get the next Ramadan date
     function getNextRamadanDate() {
         const today = new Date();
         const currentYear = today.getFullYear();
@@ -12,35 +12,32 @@ document.addEventListener("DOMContentLoaded", function () {
             2028: new Date(Date.UTC(2028, 0, 27, 0, 0, 0))  // Jan 27, 2028
         };
 
-        return ramadanStartDates[currentYear] || new Date(Date.UTC(currentYear + 1, 2, 15, 0, 0, 0));
+        return ramadanStartDates[currentYear] || new Date(Date.UTC(currentYear + 1, 2, 15, 0, 0, 0)); // Default: March 15
     }
 
+    // Function to update Ramadan countdown
     function ramadanCountdown() {
-        const countdownEl = document.getElementById("countdown");
-        const ramadanDateEl = document.getElementById("ramadanDate");
-
-        if (!countdownEl || !ramadanDateEl) {
-            console.warn("⚠ Countdown elements not found, skipping ramadanCountdown()");
-            return;
-        }
-
         const ramadanDate = getNextRamadanDate();
         const now = new Date();
         const diff = ramadanDate.getTime() - now.getTime();
 
+        // Format Ramadan date
         const options = { year: 'numeric', month: 'long', day: 'numeric' };
         const ramadanDateString = ramadanDate.toLocaleDateString('en-GB', options);
 
         if (diff > 0) {
-            countdownEl.innerText = `${Math.ceil(diff / (1000 * 60 * 60 * 24))} days left until Ramadan!`;
-            ramadanDateEl.innerText = `Ramadan begins on ${ramadanDateString}`;
+            const days = Math.ceil(diff / (1000 * 60 * 60 * 24));
+            document.getElementById('countdown').innerText = `${days} days left until Ramadan!`;
+            document.getElementById('ramadanDate').innerText = `Ramadan begins on ${ramadanDateString}`;
         } else {
-            countdownEl.innerText = "🌙 Ramadan Kareem!";
-            ramadanDateEl.innerText = "🎉 Ramadan has begun! Wishing you a blessed month!";
+            document.getElementById('countdown').innerText = "🌙 Ramadan Kareem!";
+            document.getElementById('ramadanDate').innerText = `🎉 Ramadan has begun! Wishing you a blessed month!`;
         }
     }
 
-    console.log("⏳ Running Ramadan Countdown...");
+
+    // Run functions after DOM loads
     ramadanCountdown();
-    setInterval(ramadanCountdown, 86400000);
+    setInterval(ramadanCountdown, 86400000); // Update daily
+    
 });
