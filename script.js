@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     // Function to load daily prayer times from CSV
     async function loadPrayerTimes() {
-        const filePath = "https://raw.githubusercontent.com/Jack0Trade/Ramadan/main/jadual_waktu_solat_JAKIM.csv";
+        const filePath = "https://raw.githubusercontent.com/Jack0Trade/Ramadan/main/jadual_waktu_solat_JAKIM.csv?raw=true";
 
         try {
             console.log("🔍 Fetching CSV file...");
