@@ -43,24 +43,41 @@
             <p class="mt-2 text-gray-500">"Nawaitu Souma Syahri Ramadhana Kul’lihi Lil’lahi Ta’ala"</p>
         </div>
 
-        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjkFl4UO4QQEulwpI-fZRDBGYyHerrGKxpsm3LPqn6JpLwnvbu6tBJFbq159c6q-4IJ8LrC4o7t_924meYeIuzRBXhK5MaEulFT9-jPL9UBAouSYN-NpbdB6KezO7_ZTN3-rmn-bGi9f_E/s1600/598_1.gif" alt="Quran Image" class="mt-6 rounded-lg shadow-md">
+        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjkFl4UO4QQEulwpI-fZRDBGYyHerrGKxpsm3LPqn6JpLwnvbu6tBJFbq159c6q-4IJ8LrC4o7t_924meYeIuzRBXhK5MaEulFT9-jPL9UBAouSYN-NpbdB6KezO7_ZTN3-rmn-bGi9f_E/s1600/598_1.gif" 
+            alt="Quran Image" class="mt-6 rounded-lg shadow-md">
+        
+        <!-- Play Button (Hidden if Autoplay Works) -->
+        <button id="playButton" class="bg-green-700 text-white px-4 py-2 rounded-lg mt-6 hidden" onclick="playAudio()">
+            🎵 Play Quran Recitation
+        </button>
+
     </main>
 
-    <!-- Audio Player (Autoplay) -->
-    <audio id="quranAudio" autoplay loop>
-        <source src="97.mp3" type="audio/mpeg">
+    <!-- Audio Player -->
+    <audio id="quranAudio" loop>
+        <source src="your-audio-file.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
 
     <script>
-        // Attempt to play audio automatically on page load
+        function playAudio() {
+            let audio = document.getElementById("quranAudio");
+            audio.play();
+        }
+
+        // Try autoplaying when the page loads
         document.addEventListener("DOMContentLoaded", function() {
             let audio = document.getElementById("quranAudio");
+            let playButton = document.getElementById("playButton");
+
             let playPromise = audio.play();
 
             if (playPromise !== undefined) {
-                playPromise.catch(() => {
-                    console.log("Autoplay blocked, user interaction needed.");
+                playPromise.then(() => {
+                    console.log("Audio autoplayed successfully.");
+                }).catch(() => {
+                    console.log("Autoplay blocked, showing play button.");
+                    playButton.classList.remove("hidden"); // Show button if autoplay is blocked
                 });
             }
         });
