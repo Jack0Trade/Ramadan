@@ -1,3 +1,4 @@
+console.log("✅ script.js is running!");
 document.addEventListener("DOMContentLoaded", async function () {
     // Function to get the next Ramadan date
     function getNextRamadanDate() {
