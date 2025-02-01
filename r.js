@@ -19,13 +19,13 @@ document.addEventListener("DOMContentLoaded", async function () {
         let found = false;
         rows.slice(1).forEach(row => {
             if (row[0].trim() === todayDate) {
-                document.getElementById("imsak").innerText = row[3].trim();
-                document.getElementById("subuh").innerText = row[4].trim();
-                document.getElementById("syuruk").innerText = row[5].trim();
-                document.getElementById("zohor").innerText = row[6].trim();
-                document.getElementById("asar").innerText = row[7].trim();
-                document.getElementById("maghrib").innerText = row[8].trim();
-                document.getElementById("isyak").innerText = row[9].trim();
+                document.getElementById("Imsak").innerText = row[3].trim();
+                document.getElementById("Subuh").innerText = row[4].trim();
+                document.getElementById("Syuruk").innerText = row[5].trim();
+                document.getElementById("Zohor").innerText = row[6].trim();
+                document.getElementById("Asar").innerText = row[7].trim();
+                document.getElementById("Maghrib").innerText = row[8].trim();
+                document.getElementById("Isyak").innerText = row[9].trim();
                 found = true;
             }
         });
