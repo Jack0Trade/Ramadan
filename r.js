@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         const today = new Date();
         const todayDate = today.toLocaleDateString("en-GB", { 
             day: "2-digit", month: "short", year: "numeric" 
-        }).replace(" ", "-");  // Converts "01 Jan 2025" to "01-Jan-2025"
+        }).replace(/\s+/g, "-");  // Converts "01 Jan 2025" to "01-Jan-2025"
 
         console.log("🔍 Looking for today's date:", todayDate);
 
