@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
         let found = false;
         rows.slice(1).forEach(row => {
-           if (row[0].trim() === todayDate.trim()) 
+           if (row[0].trim() === todayDate.trim()) {
                 document.getElementById("imsak").innerText = row[3].trim();
                 document.getElementById("subuh").innerText = row[4].trim();
                 document.getElementById("syuruk").innerText = row[5].trim();
