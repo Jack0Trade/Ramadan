@@ -36,38 +36,56 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     // Function to load daily prayer times from CSV
     async function loadPrayerTimes() {
-        const filePath = "https://raw.githubusercontent.com/Jack0Trade/Ramadan/main/jadual_waktu_solat_JAKIM.csv"; // Ensure this is accessible
+        const filePath = "https://raw.githubusercontent.com/Jack0Trade/Ramadan/main/jadual_waktu_solat_JAKIM.csv";
 
-        const response = await fetch(filePath);
-        const data = await response.text();
+        try {
+            console.log("🔍 Fetching CSV file...");
+            const response = await fetch(filePath);
+            if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
 
-        // Parse CSV data
-        const rows = data.split("\n").map(row => row.split(","));
-        const today = new Date();
-        const todayDate = today.toLocaleDateString("en-GB", { day: "2-digit", month: "short", year: "numeric" }).replace(" ", "-");
+            const data = await response.text();
+            console.log("✅ CSV Loaded Successfully:\n", data);
 
-        let found = false;
-        rows.slice(1).forEach(row => {
-            if (row[0].trim() === todayDate) {
-                document.getElementById("imsak").innerText = row[3].trim();
-                document.getElementById("subuh").innerText = row[4].trim();
-                document.getElementById("syuruk").innerText = row[5].trim();
-                document.getElementById("zohor").innerText = row[6].trim();
-                document.getElementById("asar").innerText = row[7].trim();
-                document.getElementById("maghrib").innerText = row[8].trim();
-                document.getElementById("isyak").innerText = row[9].trim();
-                found = true;
+            const rows = data.trim().split("\n").map(row => row.split(","));
+            console.log("✅ Parsed CSV Rows:", rows);
+
+            const today = new Date();
+            const todayDate = today.toLocaleDateString("en-GB", { 
+                day: "2-digit", month: "short", year: "numeric" 
+            }).replace(" ", "-");  // Converts "01 Jan 2025" to "01-Jan-2025"
+
+            console.log("🔍 Looking for today's date:", todayDate);
+
+            let found = false;
+            rows.slice(1).forEach((row, index) => {
+                const csvDate = row[0].trim();
+                console.log(`Checking row ${index + 1}:`, csvDate, "vs", todayDate);
+
+                if (csvDate === todayDate) {
+                    console.log("✅ Match found!", row);
+                    document.getElementById("imsak").innerText = row[3].trim();
+                    document.getElementById("subuh").innerText = row[4].trim();
+                    document.getElementById("syuruk").innerText = row[5].trim();
+                    document.getElementById("zohor").innerText = row[6].trim();
+                    document.getElementById("asar").innerText = row[7].trim();
+                    document.getElementById("maghrib").innerText = row[8].trim();
+                    document.getElementById("isyak").innerText = row[9].trim();
+                    found = true;
+                }
+            });
+
+            if (!found) {
+                console.warn("⚠ No matching date found in CSV.");
+                document.getElementById("imsak").innerText = "Not available";
+                document.getElementById("subuh").innerText = "Not available";
+                document.getElementById("syuruk").innerText = "Not available";
+                document.getElementById("zohor").innerText = "Not available";
+                document.getElementById("asar").innerText = "Not available";
+                document.getElementById("maghrib").innerText = "Not available";
+                document.getElementById("isyak").innerText = "Not available";
             }
-        });
-
-        if (!found) {
-            document.getElementById("imsak").innerText = "Not available";
-            document.getElementById("subuh").innerText = "Not available";
-            document.getElementById("syuruk").innerText = "Not available";
-            document.getElementById("zohor").innerText = "Not available";
-            document.getElementById("asar").innerText = "Not available";
-            document.getElementById("maghrib").innerText = "Not available";
-            document.getElementById("isyak").innerText = "Not available";
+        } catch (error) {
+            console.error("❌ Fetch Error:", error);
         }
     }
 
