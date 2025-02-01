@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prayer Times</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="flex flex-col min-h-screen bg-gray-100 text-gray-800">
+
+    <!-- Header -->
+    <header class="bg-green-700 text-white text-center py-6 shadow-lg">
+        <h1 class="text-4xl font-bold">🕌 Prayer & Fasting Schedule</h1>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="bg-green-800 text-white py-4 shadow-md">
+        <div class="flex justify-center space-x-6">
+            <a href="index.html" class="hover:text-yellow-300">Home</a>
+            <a href="prayer.html" class="hover:text-yellow-300">Prayer Times</a>
+            <a href="quran.html" class="hover:text-yellow-300">Quran & Duas</a>
+            <a href="raya.html" class="hover:text-yellow-300">Raya</a>
+        </div>
+    </nav>
+
+    <!-- Prayer Table -->
+    <main class="flex-grow max-w-2xl mx-auto p-6 text-center">
+        <h2 class="text-3xl font-semibold text-green-700">Daily Prayer Times</h2>
+        <table class="mt-6 w-full bg-white rounded-lg shadow-md border-collapse">
+            <tr class="bg-green-600 text-white">
+                <th class="py-3 px-5">Prayer</th>
+                <th class="py-3 px-5">Time</th>
+            </tr>
+            <tr><td class="py-3 px-5">Fajr</td><td class="py-3 px-5">05:15 AM</td></tr>
+            <tr class="bg-gray-200"><td class="py-3 px-5">Dhuhr</td><td class="py-3 px-5">12:30 PM</td></tr>
+            <tr><td class="py-3 px-5">Asr</td><td class="py-3 px-5">04:00 PM</td></tr>
+            <tr class="bg-gray-200"><td class="py-3 px-5">Maghrib (Iftar)</td><td class="py-3 px-5">07:15 PM</td></tr>
+            <tr><td class="py-3 px-5">Isha</td><td class="py-3 px-5">08:30 PM</td></tr>
+        </table>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white text-center py-4 mt-auto">
+        <p>© 2025 Ramadan Mubarak | Made with ❤️</p>
+    </footer>
+
+</body>
+</html>
