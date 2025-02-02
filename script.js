@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
+    // Ramadan Countdown Function
     function ramadanCountdown() {
-        // Set the upcoming Ramadan start date (adjust yearly)
         const ramadanDate = new Date('February 28, 2025 00:00:00').getTime();
         const now = new Date().getTime();
         const diff = ramadanDate - now;
@@ -12,34 +12,30 @@ document.addEventListener("DOMContentLoaded", function () {
             document.getElementById('countdown').innerText = "Ramadan is here!";
         }
     }
-// Select all slide elements
-const slides = document.querySelectorAll('.slide');
-let currentSlide = 0;
 
-// Function to show the current slide
-function showSlide(index) {
-    slides.forEach((slide, i) => {
-        slide.classList.toggle('hidden', i !== index);
-    });
-}
+    // Auto Slide Functionality
+    const slides = document.querySelectorAll('.slide');
+    let currentSlide = 0;
+    const slideIntervalTime = 5000; // Change slide every 5 seconds
 
-// Next Slide Button
-document.getElementById('next').addEventListener('click', () => {
-    currentSlide = (currentSlide + 1) % slides.length; // Loop to the first slide after the last
+    function showSlide(index) {
+        slides.forEach((slide, i) => {
+            slide.classList.toggle('hidden', i !== index);
+        });
+    }
+
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % slides.length;
+        showSlide(currentSlide);
+    }
+
+    // Start Auto Slide
+    setInterval(nextSlide, slideIntervalTime);
+
+    // Show the first slide initially
     showSlide(currentSlide);
-});
 
-// Previous Slide Button
-document.getElementById('prev').addEventListener('click', () => {
-    currentSlide = (currentSlide - 1 + slides.length) % slides.length; // Loop to the last slide before the first
-    showSlide(currentSlide);
-});
-
-// Show the first slide initially
-showSlide(currentSlide);
-
-
-    // Run function after DOM loads
+    // Run countdown function initially and update daily
     ramadanCountdown();
-    setInterval(ramadanCountdown, 86400000); // Update daily
+    setInterval(ramadanCountdown, 86400000);
 });
