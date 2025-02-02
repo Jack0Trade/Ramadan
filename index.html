@@ -26,15 +26,43 @@
         </div>
     </nav>
 
-    <!-- Main Content -->
-    <main class="flex-grow max-w-3xl mx-auto p-6 text-center">
-        <h2 class="text-3xl font-semibold text-green-700">Welcome to Ramadan</h2>
-        <p class="mt-4 text-lg">Experience the blessings of this holy month with prayer, fasting, and good deeds.</p>
-        <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExbzM5dWFmendwM253MzkzNTF1Z2RqbTRkd2NmZ3lvZXZ3Y2hpbHRjbiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Rd1yqDjrX8Gk4o27sQ/giphy.gif" 
-     alt="Ramadan Image" 
-     class="mt-6 rounded-lg shadow-md mx-auto w-1/2 sm:w-1/3 md:w-1/4">
+    <!-- Slide Deck -->
+    <div class="flex-grow flex flex-col items-center justify-center p-6">
+        <div class="relative w-full max-w-3xl bg-white shadow-lg rounded-lg p-8 text-center">
 
-    </main>
+            <!-- Slides -->
+            <div id="slides">
+                <div class="slide">
+                    <h2 class="text-3xl font-semibold text-green-700">Introduction to Ramadan</h2>
+                    <p class="mt-4 text-lg">Ramadan is the holiest month in Islam, a time of fasting, prayer, and reflection.</p>
+                    <img src="https://source.unsplash.com/600x400/?ramadan,mosque" alt="Ramadan Mosque" class="mt-6 mx-auto rounded-lg shadow-md">
+                </div>
+
+                <div class="slide hidden">
+                    <h2 class="text-3xl font-semibold text-green-700">The Importance of Fasting</h2>
+                    <p class="mt-4 text-lg">Fasting during Ramadan is one of the Five Pillars of Islam.</p>
+                    <img src="https://source.unsplash.com/600x400/?iftar" alt="Iftar" class="mt-6 mx-auto rounded-lg shadow-md">
+                </div>
+
+                <div class="slide hidden">
+                    <h2 class="text-3xl font-semibold text-green-700">Acts of Worship</h2>
+                    <p class="mt-4 text-lg">Muslims engage in increased prayer, charity, and reading of the Quran.</p>
+                    <img src="https://source.unsplash.com/600x400/?quran,prayer" alt="Quran" class="mt-6 mx-auto rounded-lg shadow-md">
+                </div>
+            </div>
+
+            <!-- Navigation Buttons -->
+            <div class="mt-6 flex justify-between">
+                <button id="prev" class="bg-green-700 text-white px-4 py-2 rounded-lg shadow-md hover:bg-green-900 transition">
+                    &#10094; Previous
+                </button>
+                <button id="next" class="bg-green-700 text-white px-4 py-2 rounded-lg shadow-md hover:bg-green-900 transition">
+                    Next &#10095;
+                </button>
+            </div>
+
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer class="bg-gray-800 text-white text-center py-4 mt-auto">
