@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bazaar Ramadan</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="flex flex-col min-h-screen bg-gray-100 text-gray-800">
+
+    <!-- Header -->
+    <header class="bg-green-600 text-white text-center py-6 shadow-lg">
+        <h1 class="text-4xl font-bold">🍽️ Bazaar Ramadan </h1>
+        <p class="mt-2 text-lg">Iftar is a must! Let's see where to buy the food!</p>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="bg-green-700 text-white py-4 shadow-md">
+        <div class="flex justify-center space-x-6">
+            <a href="index.html" class="hover:text-yellow-300">Home</a>
+            <a href="prayer.html" class="hover:text-yellow-300">Prayer Time</a>
+            <a href="quran.html" class="hover:text-yellow-300">Quran & Duas</a>
+            <a href="bazaar.html" class="hover:text-yellow-300">Bazaar</a>
+            <a href="raya.html" class="hover:text-yellow-300">Raya</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="flex-grow max-w-5xl mx-auto p-6 text-center">
+        <h2 class="text-3xl font-semibold text-green-700">Find Ramadan Bazaars</h2>
+        <p class="mt-4 text-lg">Click the images below to explore popular Ramadan bazaars.</p>
+
+        <!-- Image Buttons -->
+        <div class="mt-6 space-x-4 flex justify-center">
+            <button id="btn-kl">
+                <img src="kl-icon.png" alt="Bazaar in KL" class="w-32 h-32 rounded-lg shadow-md hover:shadow-lg cursor-pointer">
+            </button>
+
+            <button id="btn-selangor">
+                <img src="selangor-icon.png" alt="Bazaar in Selangor" class="w-32 h-32 rounded-lg shadow-md hover:shadow-lg cursor-pointer">
+            </button>
+        </div>
+
+        <!-- Bazaar List -->
+        <div id="bazaar-list" class="mt-6 text-left hidden bg-white p-4 shadow-md rounded-md">
+            <h3 class="text-2xl font-semibold text-green-700" id="bazaar-title"></h3>
+            <ul class="list-disc pl-6 mt-2 text-lg text-gray-700" id="bazaar-items"></ul>
+        </div>
+
+        <!-- Google Map Embedded -->
+        <div id="map-container" class="hidden mt-6">
+            <iframe id="map-frame" class="w-full h-96 rounded-lg shadow-md" frameborder="0" style="border:0;" allowfullscreen></iframe>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white text-center py-4 mt-auto">
+        <p>© 2025 Bazaar with me | Made with ❤️</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="baz.js"></script>
+
+</body>
+</html>
