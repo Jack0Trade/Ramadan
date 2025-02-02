@@ -12,7 +12,7 @@ function showBazaars(location) {
     const bazaars = {
         kl: [
             { name: "Bazaar Jalan Tuanku Abdul Rahman", map: "https://www.google.com/maps/dir//Bazaar+Lorong+Tuanku+Abdul+Rahman,+70,+Lorong+Tuanku+Abdul+Rahman,+Kuala+Lumpur+City+Centre,+50000+Kuala+Lumpur,+Federal+Territory+of+Kuala+Lumpur/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x31cc49f2d5b29c23:0x98147be390c1c251?sa=X&ved=1t:57443&ictx=111" },
-            { name: "Bazaar Taman Tun Dr. Ismail (TTDI)", map: "https://www.google.com/maps/dir/3.2669696,101.6692736/Bazar+Ramadan+Jalan+TAR+(Bazar+Aidilfitri+KL),+Lorong+Tuanku+Abdul+Rahman,+Kuala+Lumpur+City+Centre,+50100+Kuala+Lumpur,+Federal+Territory+of+Kuala+Lumpur/@3.2087599,101.6425528,14732m/data=!3m2!1e3!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x31cc49a95996ffb3:0x60404b010116a379!2m2!1d101.6968044!2d3.1546917?entry=ttu&g_ep=EgoyMDI1MDEyOS4xIKXMDSoASAFQAw%3D%3D" },
+            { name: "Bazaar Taman Tun Dr. Ismail (TTDI)", map: "https://g.co/kgs/g71H9zw" },
             { name: "Bazaar Kampung Baru", map: "https://www.google.com/maps/dir//45,+Jln+Raja+Alang,+Kampung+Baru,+50300+Kuala+Lumpur,+Wilayah+Persekutuan+Kuala+Lumpur/@3.163793,101.6193078,29465m/data=!3m1!1e3!4m8!4m7!1m0!1m5!1m1!1s0x31cc491f410c7f01:0x21927334f761fd71!2m2!1d101.7017098!2d3.1637963?entry=ttu&g_ep=EgoyMDI1MDEyOS4xIKXMDSoASAFQAw%3D%3D" }
         ],
         selangor: [
