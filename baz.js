@@ -12,11 +12,11 @@ function showBazaars(location) {
     const bazaars = {
         kl: [
             { name: "Bazaar Jalan Tuanku Abdul Rahman", videoId: "7217407516337048838" },
-            { name: "Bazaar Taman Tun Dr. Ismail (TTDI)", videoId: "7223456789012345678" },
-            { name: "Bazaar Kampung Baru", videoId: "7234567890123456789" }
+            { name: "Bazaar Taman Tun Dr. Ismail (TTDI)", videoId: "7221755933272149274" },
+            { name: "Bazaar Kampung Baru", videoId: "7345407698625776897" }
         ],
         selangor: [
-            { name: "Bazaar Ampang", videoId: "7245678901234567890" },
+            { name: "Bazaar Ampang", videoId: "7345417496800791810" },
             { name: "Bazaar Setia Alam", videoId: "7256789012345678901" },
             { name: "Bazaar Selayang", videoId: "7267890123456789012" }
         ]
