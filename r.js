@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         const headers = rows[0].map(h => h.trim());
         console.log("✅ Headers:", headers);
 
-        // Get the index of "Tarikh Miladi" column
+        // Get the index of prayer time columns
         const dateIndex = headers.indexOf("Tarikh Miladi");
         const imsakIndex = headers.indexOf("Imsak");
         const subuhIndex = headers.indexOf("Subuh");
@@ -35,16 +35,26 @@ document.addEventListener("DOMContentLoaded", async function () {
         console.log("🔍 Looking for today's date:", todayDate);
 
         let found = false;
+        let prayerTimes = {};  // To store today's prayer times
+
         rows.slice(1).forEach(row => {
             if (row[dateIndex].trim() === todayDate) {
                 console.log("✅ Match found!", row);
-                document.getElementById("imsak").innerText = row[imsakIndex].trim();
-                document.getElementById("subuh").innerText = row[subuhIndex].trim();
-                document.getElementById("syuruk").innerText = row[syurukIndex].trim();
-                document.getElementById("zohor").innerText = row[zohorIndex].trim();
-                document.getElementById("asar").innerText = row[asarIndex].trim();
-                document.getElementById("maghrib").innerText = row[maghribIndex].trim();
-                document.getElementById("isyak").innerText = row[isyakIndex].trim();
+
+                prayerTimes = {
+                    "imsak": row[imsakIndex].trim(),
+                    "subuh": row[subuhIndex].trim(),
+                    "syuruk": row[syurukIndex].trim(),
+                    "zohor": row[zohorIndex].trim(),
+                    "asar": row[asarIndex].trim(),
+                    "maghrib": row[maghribIndex].trim(),
+                    "isyak": row[isyakIndex].trim(),
+                };
+
+                Object.keys(prayerTimes).forEach(prayer => {
+                    document.getElementById(prayer).innerText = prayerTimes[prayer];
+                });
+
                 found = true;
             }
         });
@@ -54,6 +64,38 @@ document.addEventListener("DOMContentLoaded", async function () {
             document.querySelectorAll("#imsak, #subuh, #syuruk, #zohor, #asar, #maghrib, #isyak")
                 .forEach(el => el.innerText = "Not available");
         }
+
+        // Live clock and highlighting feature
+        function updateClock() {
+            const now = new Date();
+            const hours = now.getHours().toString().padStart(2, '0');
+            const minutes = now.getMinutes().toString().padStart(2, '0');
+            const seconds = now.getSeconds().toString().padStart(2, '0');
+            const currentTime = `${hours}:${minutes}`;
+
+            // Update the live clock display
+            document.getElementById("current-time").textContent = `${hours}:${minutes}:${seconds}`;
+
+            // Highlight the matching prayer time
+            highlightPrayerTime(currentTime);
+        }
+
+        function highlightPrayerTime(currentTime) {
+            Object.keys(prayerTimes).forEach(prayer => {
+                const cell = document.getElementById(prayer);
+                if (cell) {
+                    if (prayerTimes[prayer] === currentTime) {
+                        cell.classList.add("bg-yellow-300", "text-black", "font-bold", "animate-pulse");
+                    } else {
+                        cell.classList.remove("bg-yellow-300", "text-black", "font-bold", "animate-pulse");
+                    }
+                }
+            });
+        }
+
+        // Run the clock every second
+        setInterval(updateClock, 1000);
+
     } catch (error) {
         console.error("❌ Fetch Error:", error);
     }
