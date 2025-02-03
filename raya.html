@@ -75,6 +75,41 @@
                 <p class="mt-2 text-sm font-semibold">Dilynahijab</p>
             </a>
         </div>
+                <!-- Play Button (Hidden if Autoplay Works) -->
+        <button id="playButton" class="bg-green-700 text-white px-4 py-2 rounded-lg mt-6 hidden" onclick="playAudio()">
+            🎵 Play Quran Recitation
+        </button>
+
+    </main>
+
+    <!-- Audio Player -->
+    <audio id="quranAudio" loop>
+        <source src="https://www.youtube.com/embed/txl5UqPCSsM?si=lSzA6fgDK15-vOHa" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script>
+        function playAudio() {
+            let audio = document.getElementById("quranAudio");
+            audio.play();
+        }
+
+        // Try autoplaying when the page loads
+        document.addEventListener("DOMContentLoaded", function() {
+            let audio = document.getElementById("quranAudio");
+            let playButton = document.getElementById("playButton");
+
+            let playPromise = audio.play();
+
+            if (playPromise !== undefined) {
+                playPromise.then(() => {
+                    console.log("Audio autoplayed successfully.");
+                }).catch(() => {
+                    console.log("Autoplay blocked, showing play button.");
+                    playButton.classList.remove("hidden"); // Show button if autoplay is blocked
+                });
+            }
+        });
     </main>
 
     <!-- Footer -->
