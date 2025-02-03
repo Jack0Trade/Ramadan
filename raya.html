@@ -78,11 +78,11 @@
 
     </main>
 
-<!-- YouTube Embedded Quran Recitation -->
+<!-- YouTube Embedded Raya Song -->
 <div class="flex justify-center mt-6">
-    <iframe id="quranVideo" width="560" height="315"
-        src="https://www.youtube.com/embed/txl5UqPCSsM?autoplay=1&loop=1&playlist=txl5UqPCSsM"
-        title="Quran Recitation"
+    <iframe id="rayaVideo" width="560" height="315"
+        src="https://www.youtube.com/embed/txl5UqPCSsM?si=lSzA6fgDK15-vOHa"
+        title="Raya Song"
         frameborder="0"
         allow="autoplay; encrypted-media"
         allowfullscreen>
@@ -90,14 +90,14 @@
 </div>
 
 <!-- Play Button (If Autoplay is Blocked) -->
-<button id="playButton" class="bg-green-700 text-white px-4 py-2 rounded-lg mt-6 hidden" onclick="playQuran()">
-    🎵 Play Quran Recitation
+<button id="playButton" class="bg-green-700 text-white px-4 py-2 rounded-lg mt-6 hidden" onclick="rayaSong()">
+    🎵 Play Raya Song
 </button>
 
 <script>
-    function playQuran() {
-        let quranVideo = document.getElementById("quranVideo");
-        quranVideo.src += "&autoplay=1";
+    function rayaSong() {
+        let rayaSong = document.getElementById("rayaVideo");
+        rayaVideo.src += "&autoplay=1";
     }
 
     // Try autoplaying when the page loads
@@ -106,7 +106,7 @@
 
         // If autoplay is blocked, show the play button
         setTimeout(() => {
-            let iframe = document.getElementById("quranVideo");
+            let iframe = document.getElementById("rayaVideo");
             if (!iframe.src.includes("autoplay=1")) {
                 console.log("Autoplay blocked, showing play button.");
                 playButton.classList.remove("hidden");
