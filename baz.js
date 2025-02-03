@@ -38,16 +38,9 @@ function showBazaars(location) {
 }
 
 function showVideo(videoId) {
-    // Check if user is on a mobile device
-    if (/Mobi|Android|iPhone|iPad/.test(navigator.userAgent)) {
-        // Open TikTok video in a new tab for mobile users
-        window.open(`https://www.tiktok.com/@username/video/${videoId}`, "_blank");
-        return;
-    }
-
     const videoContainer = document.getElementById("video-content");
 
-    // Clear any previous content
+    // Clear previous content
     videoContainer.innerHTML = "";
 
     // Create TikTok blockquote dynamically
@@ -55,8 +48,8 @@ function showVideo(videoId) {
     blockquote.classList.add("tiktok-embed");
     blockquote.setAttribute("cite", `https://www.tiktok.com/@username/video/${videoId}`);
     blockquote.setAttribute("data-video-id", videoId);
-    blockquote.style.maxWidth = "605px";
-    blockquote.style.minWidth = "325px";
+    blockquote.style.maxWidth = "100%";
+    blockquote.style.minWidth = "300px";
     blockquote.innerHTML = `<section></section>`;
 
     // Append blockquote to container
@@ -73,11 +66,13 @@ function showVideo(videoId) {
     script.async = true;
     document.body.appendChild(script);
 
-    // Show popup
-    document.getElementById("video-popup").classList.remove("hidden");
+    // Delay showing the popup to allow TikTok to load
+    setTimeout(() => {
+        document.getElementById("video-popup").classList.remove("hidden");
+    }, 500); // 0.5s delay to ensure the video loads
 }
 
 function closePopup() {
     document.getElementById("video-popup").classList.add("hidden");
-    document.getElementById("video-content").innerHTML = ""; // Clear content to avoid duplicate embeds
+    document.getElementById("video-content").innerHTML = ""; // Clear content to prevent duplicate embeds
 }
