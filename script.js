@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
     // Ramadan Countdown Function
     function ramadanCountdown() {
-        const ramadanDate = new Date('February 28, 2025 00:00:00').getTime();
+        const ramadanDate = new Date('February 29, 2025 00:00:00').getTime();
         const now = new Date().getTime();
         const diff = ramadanDate - now;
 
